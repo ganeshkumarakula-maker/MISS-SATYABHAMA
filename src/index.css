@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color Palette - §7 Design Direction */
+  --color-brand-black: #0A0A0A;
+  --color-brand-offblack: #141414;
+  --color-brand-surface: #1A1A1A;
+  --color-brand-border: #2A2A2A;
+  --color-brand-gold: #C9A96E;
+  --color-brand-gold-hover: #D4BC8A;
+  --color-brand-gold-muted: rgba(201, 169, 110, 0.15);
+  --color-brand-light: #FFFFFF;
+  --color-brand-muted: #B3B3B3;
+
+  /* Typography */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
+
+  /* Layout Max Widths */
+  --container-editorial: 1560px;
+  --container-narrow: 960px;
+}
+
+/* Base custom styles & variables */
+:root {
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #141414;
+  --bg-surface: #1A1A1A;
+  --border-subtle: #2A2A2A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B3B3B3;
+  --accent-gold: #C9A96E;
+  --accent-gold-hover: #D4BC8A;
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Document & Body Defaults */
+html {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  color-scheme: dark;
+  scroll-padding-top: 80px; /* Offset for fixed sticky navigation */
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Headings typography hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+/* Focus styles for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+/* Custom dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A3A3A;
+}
+
+/* Accessibility: Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Editorial layout utility classes */
+.container-editorial {
+  width: min(92%, 1560px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-editorial {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-editorial {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container-editorial {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.container-narrow {
+  width: min(92%, 960px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-narrow {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Image Presentation Guidelines (§9) */
+.editorial-image-container {
+  overflow: hidden;
+  position: relative;
+  background-color: #141414;
+}
+
+.editorial-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+  filter: saturate(0.85);
+}
+
+.editorial-image:hover {
+  transform: scale(1.03);
+  filter: saturate(1);
+}
+
+/* Subtle gold divider rule */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+  border: none;
+}
