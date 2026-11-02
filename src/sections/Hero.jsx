@@ -63,7 +63,9 @@ export default function Hero() {
               <Button
                 variant="primary"
                 size="lg"
-                href="#register"
+                href={siteConfig.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="shadow-lg w-full sm:w-auto text-center min-h-[44px]"
               >
                 Register For Auditions
@@ -79,21 +81,6 @@ export default function Hero() {
               </Button>
             </div>
 
-            {/* Editorial Meta Footnote */}
-            <div className="mt-10 sm:mt-12 pt-6 border-t border-brand-border/60 w-full flex flex-wrap gap-4 sm:gap-8 items-center text-[10px] sm:text-xs tracking-widest uppercase text-brand-muted/80">
-              <div className="flex items-center">
-                <span className="text-brand-gold mr-1.5 font-mono">/01</span>
-                <span>Fashion Showcase</span>
-              </div>
-              <div className="flex items-center">
-                <span className="text-brand-gold mr-1.5 font-mono">/02</span>
-                <span>Runway Presentation</span>
-              </div>
-              <div className="flex items-center">
-                <span className="text-brand-gold mr-1.5 font-mono">/03</span>
-                <span>Andhra Pradesh</span>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Column: Hero Visual Showcase / Model Photograph (5 cols) */}

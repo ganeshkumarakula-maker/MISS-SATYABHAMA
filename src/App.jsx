@@ -1,10 +1,9 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Hero from './sections/Hero'
+import GallerySection from './sections/GallerySection'
 import About from './sections/About'
 import EventSection from './sections/EventSection'
-import EligibilitySection from './sections/EligibilitySection'
-import GallerySection from './sections/GallerySection'
 import ContactSection from './sections/ContactSection'
 
 function App() {
@@ -13,13 +12,12 @@ function App() {
       {/* Sticky Editorial Navigation */}
       <Navbar />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections — order: Home, Gallery, About, The Event, Contact */}
       <main className="flex-1">
         <Hero />
+        <GallerySection />
         <About />
         <EventSection />
-        <EligibilitySection />
-        <GallerySection />
         <ContactSection />
       </main>
 

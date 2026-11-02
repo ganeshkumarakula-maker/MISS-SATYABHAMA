@@ -25,18 +25,20 @@ const siteConfig = {
   description:
     'A premium fashion show event celebrating elegance and talent in Vijayawada, Andhra Pradesh.',
 
-  // Official contact information (to be supplied by organizer)
+  // Official contact information
   contact: {
-    email: '', // e.g., 'info@misssatyabhama.com'
-    phone: '', // e.g., '+91 98765 43210'
-    instagram: '', // e.g., 'https://instagram.com/misssatyabhama'
-    facebook: '', // e.g., 'https://facebook.com/misssatyabhama'
-    youtube: '', // e.g., 'https://youtube.com/@misssatyabhama'
+    email: 'misssatyabhama71@gmail.com',
+    phone: '9703992686', // Confirmed official phone number
+    instagram: '', // Official Instagram handle to be confirmed
+    facebook: '', // Official Facebook page to be confirmed
+    youtube: '', // Official YouTube channel to be confirmed
   },
 
-  // Registration URL — leave empty until the official Google Form is ready
-  // In production, this can be overridden via the VITE_REGISTRATION_URL env variable
-  registrationUrl: import.meta.env.VITE_REGISTRATION_URL || '',
+  // Official registration URL (Google Forms responder URL)
+  // In production, this can also be overridden via the VITE_REGISTRATION_URL env variable
+  registrationUrl:
+    import.meta.env.VITE_REGISTRATION_URL ||
+    'https://docs.google.com/forms/d/e/1FAIpQLSfULiFVehJRGyT9G9KQKjpnSyL9KCYtSlt3JJ5k9SlZ22GwzQ/viewform?usp=dialog',
 }
 
 export default siteConfig

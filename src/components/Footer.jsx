@@ -4,10 +4,9 @@ import Button from './Button'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'About', href: '#about' },
   { label: 'The Event', href: '#event' },
-  { label: 'Eligibility', href: '#eligibility' },
-  { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -100,7 +99,9 @@ export default function Footer() {
               <Button
                 variant="primary"
                 size="sm"
-                href="#register"
+                href={siteConfig.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto min-h-[44px]"
               >
                 Register For Auditions

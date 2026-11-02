@@ -5,10 +5,9 @@ import Button from './Button'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'About', href: '#about' },
   { label: 'The Event', href: '#event' },
-  { label: 'Eligibility', href: '#eligibility' },
-  { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -92,7 +91,9 @@ export default function Navbar() {
           <Button
             variant="primary"
             size="sm"
-            href="#register"
+            href={siteConfig.registrationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="tracking-widest"
           >
             Register
@@ -138,7 +139,9 @@ export default function Navbar() {
             <Button
               variant="primary"
               size="md"
-              href="#register"
+              href={siteConfig.registrationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full text-center min-h-[44px]"
             >
