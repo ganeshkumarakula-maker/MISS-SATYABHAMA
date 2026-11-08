@@ -1,10 +1,11 @@
 import { motion } from 'motion/react'
-import { ArrowRight, Trophy, Sparkles, Tag } from 'lucide-react'
+import { ArrowRight, ArrowDownRight, Sparkles, Tag } from 'lucide-react'
 import siteConfig from '../config/siteConfig'
 import Button from '../components/Button'
 
 export default function Hero() {
-  const { campaign, registrationUrl } = siteConfig
+  const { pricing, registrationUrl } = siteConfig
+  const isEarlyBird = pricing.isEarlyBirdActive()
 
   return (
     <section
@@ -27,7 +28,7 @@ export default function Hero() {
         <div className="border-l border-brand-border/20 h-full" />
         <div className="border-l border-brand-border/20 h-full hidden md:block" />
         <div className="border-l border-brand-border/20 h-full hidden md:block" />
-        <div className="border-l border-r border-brand-border/20 h-full" />
+        <div className="border-l border-brand-border/20 h-full" />
       </div>
 
       <div className="container-editorial relative z-10 w-full">
@@ -40,17 +41,19 @@ export default function Hero() {
             className="lg:col-span-7 flex flex-col items-start w-full"
           >
             {/* Badges: Location + Early Bird Live Indicator */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-5 md:mb-6 max-w-full">
+            <div className="flex flex-wrap items-center gap-2.5 mb-4 md:mb-5 max-w-full">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-brand-gold/30 bg-brand-gold/5 max-w-full">
                 <Sparkles className="w-3.5 h-3.5 text-brand-gold shrink-0" />
                 <span className="text-[10px] sm:text-xs font-sans tracking-[0.2em] sm:tracking-[0.25em] uppercase text-brand-gold font-medium truncate">
-                  {siteConfig.eventLocation.city}, {siteConfig.eventLocation.state}
+                  {siteConfig.eventLocation.city}, {siteConfig.eventLocation.state}, {siteConfig.eventLocation.country}
                 </span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-brand-gold/50 bg-brand-gold/15 text-brand-gold text-[10px] sm:text-xs font-sans font-bold uppercase tracking-wider shadow-sm">
-                <Tag className="w-3 h-3 text-brand-gold" />
-                <span>Early Bird Offer Active</span>
-              </div>
+              {isEarlyBird && (
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-brand-gold/50 bg-brand-gold/15 text-brand-gold text-[10px] sm:text-xs font-sans font-bold uppercase tracking-wider shadow-sm">
+                  <Tag className="w-3 h-3 text-brand-gold" />
+                  <span>Early Bird Offer Active</span>
+                </div>
+              )}
             </div>
 
             {/* Main Editorial Display Title with fluid clamp sizing */}
@@ -61,51 +64,73 @@ export default function Hero() {
               </span>
             </h1>
 
-            {/* Required Supporting Headline */}
+            {/* Supporting Headline */}
             <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-brand-gold font-light tracking-wide mb-3">
-              {campaign.headline}
+              {pricing.headline}
             </h2>
 
-            {/* Required Supporting Description */}
-            <p className="text-sm sm:text-base md:text-lg text-brand-muted font-sans font-light leading-relaxed max-w-2xl mb-6">
-              {campaign.subheadline} Experience a premier traditional fashion showcase celebrating South Indian heritage, Kanjeevaram sarees, and timeless elegance in Vijayawada.
+            {/* Supporting Description emphasizing traditional Indian & South Indian fashion */}
+            <p className="text-sm sm:text-base md:text-lg text-brand-muted font-sans font-light leading-relaxed max-w-2xl mb-5">
+              Experience Vijayawada’s premier traditional Indian fashion show celebrating South Indian silk sarees, authentic Kanjeevaram weaves, elegant half-sarees, lehengas, temple jewellery, and timeless cultural grace.
             </p>
 
-            {/* Integrated Early Bird Offer Card */}
-            <div className="w-full max-w-xl p-4 sm:p-5 bg-gradient-to-r from-brand-gold/15 via-brand-surface/90 to-brand-surface border border-brand-gold/50 backdrop-blur-md mb-6 sm:mb-8 relative overflow-hidden shadow-2xl">
+            {/* Integrated Pricing Card */}
+            <div className="w-full max-w-2xl p-4 sm:p-5 bg-gradient-to-r from-brand-gold/15 via-brand-surface/90 to-brand-surface border border-brand-gold/50 backdrop-blur-md mb-6 sm:mb-8 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-gold pointer-events-none" />
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-gold font-semibold">
-                      Early Bird Registration
-                    </span>
-                    <span className="text-[10px] font-sans px-2 py-0.5 bg-brand-gold text-brand-black font-bold uppercase tracking-wider">
-                      Save {campaign.discountFormatted}
-                    </span>
+              
+              {isEarlyBird ? (
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-gold font-bold">
+                        Early Bird Registration
+                      </span>
+                      <span className="text-[10px] font-sans px-2 py-0.5 bg-brand-gold text-brand-black font-bold uppercase tracking-wider">
+                        Save {pricing.discountFormatted}
+                      </span>
+                    </div>
+                    <div className="flex items-baseline gap-2.5">
+                      <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-gold leading-none">
+                        {pricing.earlyBirdPriceFormatted}
+                      </span>
+                      <span className="font-serif text-base sm:text-lg text-brand-muted line-through">
+                        {pricing.regularPriceFormatted}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-baseline gap-2.5">
-                    <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-gold leading-none">
-                      {campaign.earlyBirdPriceFormatted}
-                    </span>
-                    <span className="font-serif text-base sm:text-lg text-brand-muted line-through">
-                      {campaign.originalPriceFormatted}
-                    </span>
-                  </div>
-                </div>
 
-                <div className="sm:text-right border-t sm:border-t-0 sm:border-l border-brand-border/60 pt-2 sm:pt-0 sm:pl-4">
-                  <span className="block text-[10px] uppercase font-sans tracking-widest text-brand-muted">
-                    Offer Valid Till
-                  </span>
-                  <span className="text-xs sm:text-sm font-sans font-semibold text-brand-light block">
-                    {campaign.deadline}
-                  </span>
-                  <span className="text-[10px] text-brand-gold font-medium block mt-0.5">
-                    Total Prize Pool: {campaign.prizes.totalFormatted}
-                  </span>
+                  <div className="sm:text-right border-t sm:border-t-0 sm:border-l border-brand-border/60 pt-2 sm:pt-0 sm:pl-4">
+                    <span className="block text-[10px] uppercase font-sans tracking-widest text-brand-muted">
+                      Offer Deadline
+                    </span>
+                    <span className="text-xs sm:text-sm font-sans font-semibold text-brand-light block">
+                      {pricing.earlyBirdDeadline}
+                    </span>
+                    <span className="text-[10px] text-brand-muted font-sans font-light block mt-0.5">
+                      Regular fee {pricing.regularPriceFormatted} applies after deadline
+                    </span>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                  <div>
+                    <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-gold font-bold block mb-1">
+                      Registration Fee
+                    </span>
+                    <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-gold leading-none">
+                      {pricing.regularPriceFormatted}
+                    </span>
+                  </div>
+                  <div className="sm:text-right border-t sm:border-t-0 sm:border-l border-brand-border/60 pt-2 sm:pt-0 sm:pl-4">
+                    <span className="text-xs font-sans text-brand-light block font-medium">
+                      Full Participant Package Included
+                    </span>
+                    <span className="text-[10px] text-brand-muted font-sans font-light block">
+                      Audition registrations open online
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Call to Action Buttons */}
@@ -113,20 +138,22 @@ export default function Hero() {
               <Button
                 variant="primary"
                 size="lg"
-                href="#register"
+                href={registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="shadow-lg w-full sm:w-auto text-center min-h-[48px] font-bold"
               >
-                <span>REGISTER NOW</span>
+                <span>REGISTER FOR AUDITIONS</span>
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
               <Button
                 variant="secondary"
                 size="lg"
-                href="#prizes"
+                href="#event"
                 className="group w-full sm:w-auto text-center min-h-[48px]"
               >
-                <Trophy className="w-4 h-4 mr-2 text-brand-gold" />
-                <span>EXPLORE PRIZES</span>
+                <span>VIEW EVENT &amp; INCLUSIONS</span>
+                <ArrowDownRight className="w-4 h-4 ml-2 text-brand-gold transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5 inline shrink-0" />
               </Button>
             </div>
 

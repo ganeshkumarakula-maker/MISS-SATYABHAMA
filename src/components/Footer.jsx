@@ -4,8 +4,6 @@ import Button from './Button'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Prizes', href: '#prizes' },
-  { label: 'Register', href: '#register' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'About', href: '#about' },
   { label: 'The Event', href: '#event' },
@@ -93,18 +91,42 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-4 sm:space-y-6">
             <div>
               <h4 className="text-xs uppercase font-sans tracking-[0.25em] text-brand-gold font-medium mb-2.5 sm:mb-3">
-                Participant Auditions • Early Bird
+                Participant Auditions
               </h4>
               <p className="text-xs text-brand-muted font-sans font-light leading-relaxed mb-4">
-                Early Bird offer: Register for <span className="text-brand-gold font-semibold">{siteConfig.campaign.earlyBirdPriceFormatted}</span> instead of <span className="line-through">{siteConfig.campaign.originalPriceFormatted}</span> (Offer valid till {siteConfig.campaign.deadline}).
+                {siteConfig.pricing.isEarlyBirdActive() ? (
+                  <>
+                    Early Bird offer: Register for{' '}
+                    <span className="text-brand-gold font-semibold">
+                      {siteConfig.pricing.earlyBirdPriceFormatted}
+                    </span>{' '}
+                    instead of{' '}
+                    <span className="line-through">
+                      {siteConfig.pricing.regularPriceFormatted}
+                    </span>{' '}
+                    (Valid till {siteConfig.pricing.earlyBirdDeadline}).
+                  </>
+                ) : (
+                  <>
+                    Auditions registration fee:{' '}
+                    <span className="text-brand-gold font-semibold">
+                      {siteConfig.pricing.regularPriceFormatted}
+                    </span>
+                    . Full participant package included.
+                  </>
+                )}
               </p>
               <Button
                 variant="primary"
                 size="sm"
-                href="#register"
+                href={siteConfig.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto min-h-[44px] font-semibold"
               >
-                Register For Auditions ({siteConfig.campaign.earlyBirdPriceFormatted})
+                {siteConfig.pricing.isEarlyBirdActive()
+                  ? `Register (${siteConfig.pricing.earlyBirdPriceFormatted})`
+                  : 'Register For Auditions'}
               </Button>
             </div>
 

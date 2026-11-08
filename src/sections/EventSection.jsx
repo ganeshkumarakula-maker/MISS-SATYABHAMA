@@ -22,64 +22,73 @@ import Button from '../components/Button'
 import siteConfig from '../config/siteConfig'
 
 const EVENT_OVERVIEW =
-  'Miss Satyabhama is Vijayawada’s premier traditional Indian fashion showcase — an authentic runway celebration of South Indian cultural heritage, handcrafted silk sarees, graceful half-sarees, festive lehengas, and exquisite traditional jewellery. The registration fee covers a complete participant support package.'
+  'Miss Satyabhama Traditional Fashion Show is Vijayawada’s premier traditional Indian fashion showcase — an authentic runway celebration of South Indian cultural heritage, handwoven Kanjeevaram silk sarees, classic half-sarees (pattu pavada / langa voni), graceful ethnic lehengas, and exquisite traditional temple jewellery. The registration fee covers a complete participant support package.'
 
 const VENUE_NOTE =
-  'Official venue details will be announced soon. Stay tuned for updates.'
+  'Official venue details in Vijayawada will be announced soon by the organizers. Stay tuned for updates.'
+
+// Official Event Specifications (Clearly visible for visitors and search engines)
+const EVENT_SPECIFICATIONS = [
+  { label: 'Event', value: 'Miss Satyabhama Traditional Fashion Show' },
+  { label: 'Location', value: 'Vijayawada, Andhra Pradesh, India' },
+  { label: 'Event Date', value: 'To Be Announced' },
+  { label: 'Venue', value: 'To Be Announced' },
+]
 
 // Participant benefit cards — each unique, no duplicates
 const BENEFIT_CARDS = [
   {
+    icon: Ticket,
+    label: 'Audience Passes',
+    value: '5 Complimentary Passes',
+    subtext:
+      'Every registered participant receives 5 complimentary audience passes to invite family members or friends to watch the live traditional fashion show.',
+  },
+  {
     icon: Scissors,
-    label: 'Traditional Grooming & Makeup',
+    label: 'Traditional Makeup & Grooming',
     value: 'Completely FREE',
     subtext:
-      'Professional traditional makeup, hair styling with flowers, and grooming sessions are fully included in the registration. No additional payment is required.',
+      'Professional traditional makeup, hair styling with fresh flowers, and expert stage grooming sessions are fully included with no additional charges.',
   },
   {
     icon: UtensilsCrossed,
     label: 'Snacks & Beverages',
     value: 'Complimentary',
     subtext:
-      'Free snacks and beverages are provided at the event venue for all registered participants.',
+      'Complimentary refreshments, snacks, and beverages are provided at the event venue for all registered participants.',
   },
   {
     icon: Award,
     label: 'Participation Certificate',
     value: 'Government Certificate',
     subtext:
-      'All participants receive an official government participation certificate upon completing the event.',
+      'All participants receive an official government participation certificate recognizing their runway achievement upon completing the event.',
   },
   {
     icon: Camera,
     label: 'Event Photography',
-    value: 'Photos Provided',
+    value: 'Professional Photos',
     subtext:
-      'Professional traditional runway photographs will be provided to participants. Photographs may be featured on the official website with appropriate permission.',
+      'High-resolution professional traditional runway and stage portfolio photographs will be provided to all participants.',
   },
   {
     icon: Gift,
     label: 'Exclusive Event Kit',
-    value: 'EVENT KIT INCLUDED',
+    value: 'Event Kit Included',
     subtext:
-      'Every participant receives an exclusive Event Kit. Full kit contents will be announced ahead of the event.',
-  },
-  {
-    icon: MapPin,
-    label: 'Venue',
-    value: 'COMING SOON',
-    subtext: VENUE_NOTE,
+      'Every participant receives an exclusive Miss Satyabhama Event Kit. Full kit contents will be announced ahead of the event.',
   },
 ]
 
 // What participants must arrange themselves
 const INCLUDED_ITEMS = [
-  { text: 'Professional traditional grooming and makeup sessions — completely FREE' },
-  { text: '5 complimentary audience passes for family or friends' },
-  { text: 'Complimentary snacks and beverages at the venue' },
-  { text: 'Government participation certificate upon event completion' },
-  { text: 'Professional event photographs provided to participants' },
-  { text: 'Exclusive Event Kit (contents to be announced)' },
+  { text: '5 complimentary audience passes for family members or friends to watch the live show' },
+  { text: 'Professional traditional makeup, hair styling with flowers, and grooming sessions — completely FREE' },
+  { text: 'Complimentary snacks and beverages provided at the event venue' },
+  { text: 'Official government participation certificate upon completing the showcase' },
+  { text: 'High-resolution professional event photographs provided to participants' },
+  { text: 'Exclusive Miss Satyabhama Event Kit (contents to be announced)' },
 ]
 
 export default function EventSection() {
@@ -136,7 +145,29 @@ export default function EventSection() {
           </p>
         </motion.div>
 
-        {/* ── Hero Banner: Early Bird Registration Fee + 5 Free Audience Passes ── */}
+        {/* ── Official Event Information Overview (Mandatory Requirement 1) ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mx-auto mb-10 sm:mb-12"
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-4 sm:p-5 bg-brand-surface/75 border border-brand-border/90 backdrop-blur-md shadow-xl">
+            {EVENT_SPECIFICATIONS.map((spec) => (
+              <div key={spec.label} className="min-w-0">
+                <span className="text-[10px] uppercase font-sans tracking-[0.2em] text-brand-gold font-semibold block mb-1 truncate">
+                  {spec.label}
+                </span>
+                <p className="text-xs sm:text-sm font-sans text-brand-light font-medium leading-snug break-words">
+                  {spec.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* ── Hero Banner: Registration Fee + 5 Free Audience Passes ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -149,31 +180,47 @@ export default function EventSection() {
             <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-brand-gold" />
             <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-brand-gold" />
             
-            <div className="flex items-center gap-1.5 mb-1">
-              <Tag className="w-3.5 h-3.5 text-brand-gold" />
-              <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-gold font-bold">
-                Early Bird Offer
-              </span>
-              <span className="px-1.5 py-0.2 bg-brand-gold text-brand-black text-[9px] font-bold tracking-wider uppercase">
-                Save ₹3,000
-              </span>
-            </div>
+            {siteConfig.pricing.isEarlyBirdActive() ? (
+              <>
+                <div className="flex items-center gap-1.5 mb-1">
+                  <Tag className="w-3.5 h-3.5 text-brand-gold" />
+                  <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-gold font-bold">
+                    Early Bird Offer
+                  </span>
+                  <span className="px-1.5 py-0.2 bg-brand-gold text-brand-black text-[9px] font-bold tracking-wider uppercase">
+                    Save {siteConfig.pricing.discountFormatted}
+                  </span>
+                </div>
 
-            <div className="flex items-baseline gap-2.5 my-1">
-              <span className="font-serif text-4xl sm:text-5xl text-brand-gold font-bold leading-none">
-                ₹6,999
-              </span>
-              <span className="font-serif text-lg sm:text-xl text-brand-muted line-through">
-                ₹9,999
-              </span>
-            </div>
+                <div className="flex items-baseline gap-2.5 my-1">
+                  <span className="font-serif text-4xl sm:text-5xl text-brand-gold font-bold leading-none">
+                    {siteConfig.pricing.earlyBirdPriceFormatted}
+                  </span>
+                  <span className="font-serif text-lg sm:text-xl text-brand-muted line-through">
+                    {siteConfig.pricing.regularPriceFormatted}
+                  </span>
+                </div>
 
-            <span className="text-xs text-brand-light font-sans font-medium pt-0.5">
-              Valid till 25 November 2026
-            </span>
-            <span className="text-[10px] text-brand-muted font-sans font-light">
-              Full participant package included
-            </span>
+                <span className="text-xs text-brand-light font-sans font-medium pt-0.5">
+                  Valid till {siteConfig.pricing.earlyBirdDeadline}
+                </span>
+                <span className="text-[10px] text-brand-muted font-sans font-light">
+                  Regular fee {siteConfig.pricing.regularPriceFormatted} applies after deadline
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-gold font-bold mb-1">
+                  Registration Fee
+                </span>
+                <span className="font-serif text-4xl sm:text-5xl text-brand-gold font-bold leading-none py-1">
+                  {siteConfig.pricing.regularPriceFormatted}
+                </span>
+                <span className="text-xs text-brand-light font-sans font-medium">
+                  Full participant package included
+                </span>
+              </>
+            )}
           </div>
 
           {/* 5 Free Audience Passes */}
@@ -209,14 +256,22 @@ export default function EventSection() {
           <Button
             variant="primary"
             size="lg"
-            href="#register"
+            href={siteConfig.registrationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full shadow-2xl font-bold tracking-wider py-4 min-h-[48px]"
           >
-            <span>CLAIM EARLY BIRD PRICE</span>
+            <span>
+              {siteConfig.pricing.isEarlyBirdActive()
+                ? `CLAIM EARLY BIRD PRICE (${siteConfig.pricing.earlyBirdPriceFormatted})`
+                : 'REGISTER FOR AUDITIONS'}
+            </span>
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
           <p className="text-[11px] text-brand-muted mt-2 font-sans font-light">
-            Original price ₹9,999 applies after 25 November 2026.
+            {siteConfig.pricing.isEarlyBirdActive()
+              ? `Offer expires on ${siteConfig.pricing.earlyBirdDeadline}. Regular fee ${siteConfig.pricing.regularPriceFormatted} applies thereafter.`
+              : 'Registrations are open for emerging runway talent in Andhra Pradesh.'}
           </p>
         </motion.div>
 
@@ -367,15 +422,21 @@ export default function EventSection() {
             Claim Your Early Bird Spot Today
           </h3>
           <p className="text-xs sm:text-sm text-brand-muted font-sans font-light max-w-lg mx-auto mb-6">
-            Register for <span className="text-brand-gold font-semibold">₹6,999</span> instead of <span className="line-through text-brand-muted">₹9,999</span> (Save ₹3,000 till 25 November 2026). Compete for the ₹1,50,000 prize pool and walk the prestigious traditional runway in Vijayawada.
+            Register for <span className="text-brand-gold font-semibold">₹6,999</span> instead of <span className="line-through text-brand-muted">₹9,999</span> (Save ₹3,000 till {siteConfig.pricing.earlyBirdDeadline}). Walk the prestigious traditional runway and celebrate South Indian cultural elegance in Vijayawada.
           </p>
           <Button
             variant="primary"
             size="lg"
-            href="#register"
+            href={siteConfig.registrationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto shadow-2xl font-bold tracking-wider"
           >
-            <span>CLAIM EARLY BIRD PRICE</span>
+            <span>
+              {siteConfig.pricing.isEarlyBirdActive()
+                ? 'CLAIM EARLY BIRD PRICE'
+                : 'REGISTER FOR AUDITIONS'}
+            </span>
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </motion.div>

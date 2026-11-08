@@ -6,8 +6,6 @@ import AnnouncementBar from './AnnouncementBar'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Prizes', href: '#prizes' },
-  { label: 'Register', href: '#register' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'About', href: '#about' },
   { label: 'The Event', href: '#event' },
@@ -17,7 +15,8 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { campaign } = siteConfig
+  const { pricing } = siteConfig
+  const isEarlyBird = pricing.isEarlyBirdActive()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +69,7 @@ export default function Navbar() {
           aria-label={`${siteConfig.eventName} Home`}
         >
           <span className="font-serif text-lg sm:text-xl md:text-2xl font-bold tracking-wider text-brand-light group-hover:text-brand-gold transition-colors duration-300 truncate">
-            {siteConfig.eventName.toUpperCase()}
+            {siteConfig.shortName.toUpperCase()}
           </span>
           <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold font-medium">
             {siteConfig.eventLocation.city}
@@ -98,10 +97,14 @@ export default function Navbar() {
           <Button
             variant="primary"
             size="sm"
-            href="#register"
+            href={siteConfig.registrationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="tracking-wider font-semibold"
           >
-            Register ({campaign.earlyBirdPriceFormatted})
+            {isEarlyBird
+              ? `Register (${pricing.earlyBirdPriceFormatted})`
+              : 'Register For Auditions'}
           </Button>
         </div>
 
@@ -144,14 +147,20 @@ export default function Navbar() {
             <Button
               variant="primary"
               size="md"
-              href="#register"
+              href={siteConfig.registrationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full text-center min-h-[44px] font-bold"
             >
-              Register Now ({campaign.earlyBirdPriceFormatted})
+              {isEarlyBird
+                ? `Register Now (${pricing.earlyBirdPriceFormatted})`
+                : 'Register For Auditions'}
             </Button>
             <p className="text-center text-xs text-brand-muted tracking-widest uppercase">
-              Early Bird Offer Till {campaign.deadline}
+              {isEarlyBird
+                ? `Early Bird Offer Till ${pricing.earlyBirdDeadlineShort}`
+                : `${siteConfig.eventLocation.city}, ${siteConfig.eventLocation.state}`}
             </p>
           </div>
         </div>
