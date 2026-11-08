@@ -46,16 +46,21 @@ export default function Hero() {
             </div>
 
             {/* Main Editorial Display Title with fluid clamp sizing */}
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-normal text-brand-light leading-[1.12] sm:leading-[1.08] xl:leading-[1.04] tracking-tight mb-6 w-full break-words max-w-4xl">
-              Where Elegance Meets The{' '}
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-normal text-brand-light leading-[1.12] sm:leading-[1.08] xl:leading-[1.04] tracking-tight mb-4 w-full break-words max-w-4xl">
+              Where Tradition Meets The{' '}
               <span className="italic font-light text-brand-gold block sm:inline">
                 Runway.
               </span>
             </h1>
 
+            {/* Supporting Headline */}
+            <h2 className="font-serif text-lg sm:text-xl md:text-2xl text-brand-gold font-light tracking-wide mb-6">
+              Celebrating Indian Heritage, Timeless Elegance &amp; Traditional Fashion.
+            </h2>
+
             {/* Supporting Description */}
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-brand-muted font-sans font-light leading-relaxed max-w-2xl mb-8 sm:mb-10">
-              {siteConfig.description}
+              Experience a premium traditional fashion showcase celebrating the beauty of Indian ethnic wear, South Indian heritage, exquisite craftsmanship, and timeless elegance in Vijayawada, Andhra Pradesh.
             </p>
 
             {/* Call to Action Buttons */}

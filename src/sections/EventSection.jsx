@@ -19,7 +19,7 @@ import Card from '../components/Card'
 import siteConfig from '../config/siteConfig'
 
 const EVENT_OVERVIEW =
-  'Miss Satyabhama is a premier fashion showcase in Vijayawada — a professionally produced runway experience celebrating elegance, poise, and creative talent. The registration fee covers a complete participant support package.'
+  'Miss Satyabhama is Vijayawada’s premier traditional Indian fashion showcase — an authentic runway celebration of South Indian cultural heritage, handcrafted silk sarees, graceful half-sarees, festive lehengas, and exquisite traditional jewellery. The registration fee covers a complete participant support package.'
 
 const VENUE_NOTE =
   'Official venue details will be announced soon. Stay tuned for updates.'
@@ -28,10 +28,10 @@ const VENUE_NOTE =
 const BENEFIT_CARDS = [
   {
     icon: Scissors,
-    label: 'Grooming & Makeup',
+    label: 'Traditional Grooming & Makeup',
     value: 'Completely FREE',
     subtext:
-      'Professional makeup and grooming sessions are fully included in the registration. No additional payment is required for these services.',
+      'Professional traditional makeup, hair styling with flowers, and grooming sessions are fully included in the registration. No additional payment is required.',
   },
   {
     icon: UtensilsCrossed,
@@ -52,7 +52,7 @@ const BENEFIT_CARDS = [
     label: 'Event Photography',
     value: 'Photos Provided',
     subtext:
-      'Professional event photographs will be provided to participants. Photographs may be featured on the official website with appropriate permission.',
+      'Professional traditional runway photographs will be provided to participants. Photographs may be featured on the official website with appropriate permission.',
   },
   {
     icon: Gift,
@@ -71,8 +71,7 @@ const BENEFIT_CARDS = [
 
 // What participants must arrange themselves
 const INCLUDED_ITEMS = [
-  { text: 'Professional grooming sessions — completely FREE' },
-  { text: 'Professional makeup sessions — completely FREE' },
+  { text: 'Professional traditional grooming and makeup sessions — completely FREE' },
   { text: '5 complimentary audience passes for family or friends' },
   { text: 'Complimentary snacks and beverages at the venue' },
   { text: 'Government participation certificate upon event completion' },
@@ -109,9 +108,9 @@ export default function EventSection() {
       <div className="container-editorial relative z-10">
         {/* Section Heading */}
         <SectionHeading
-          eyebrow="Schedule & Production"
+          eyebrow="Traditional Runway & Production"
           title="The Event"
-          subtitle="Event Details & Participant Benefits"
+          subtitle="Traditional Indian Fashion Showcase & Participant Benefits"
           align="center"
         />
 
@@ -196,15 +195,16 @@ export default function EventSection() {
             </div>
             <div>
               <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-sans text-brand-gold font-medium mb-1">
-                Outfit Requirement
+                Traditional Outfit Requirement
               </p>
               <p className="text-sm sm:text-base font-serif text-brand-light mb-1.5">
-                Participants Must Arrange Their Own Outfits
+                Participants Bring Their Own Traditional Indian Attire
               </p>
               <p className="text-xs sm:text-sm text-brand-muted font-sans font-light leading-relaxed">
-                Participants must arrange and bring their own outfits for the runway. The
-                organization will <span className="text-brand-light font-medium">not</span> provide
-                or supply costumes or clothing.
+                Participants must arrange and bring their own traditional Indian outfits for the runway —
+                such as authentic Kanjeevaram or silk sarees, South Indian half-sarees (pattu pavada / dhavani),
+                or traditional ethnic lehengas. The organization will <span className="text-brand-light font-medium">not</span> provide
+                or supply clothing.
               </p>
             </div>
           </div>

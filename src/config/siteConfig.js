@@ -23,7 +23,7 @@ const siteConfig = {
 
   // Short event description
   description:
-    'A premium fashion show event celebrating elegance and talent in Vijayawada, Andhra Pradesh.',
+    'A premier traditional Indian fashion show celebrating ethnic heritage, South Indian elegance, exquisite craftsmanship, and timeless style in Vijayawada, Andhra Pradesh.',
 
   // Official contact information
   contact: {

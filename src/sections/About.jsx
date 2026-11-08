@@ -21,9 +21,9 @@ export default function About() {
       <div className="container-editorial relative z-10">
         {/* Section Header */}
         <SectionHeading
-          eyebrow="About The Showcase"
-          title="About Miss Satyabhama"
-          subtitle="A premier fashion showcase celebrating elegance, runway presence, and creative expression in Vijayawada, Andhra Pradesh."
+          eyebrow="Indian Heritage &amp; Elegance"
+          title="The Beauty of Indian Traditional Fashion"
+          subtitle="A premier cultural fashion showcase celebrating the grandeur of South Indian sarees, ethnic attire, and authentic craftsmanship in Vijayawada."
           align="center"
         />
 
@@ -91,29 +91,27 @@ export default function About() {
             {/* Introductory Heading */}
             <div className="space-y-4 sm:space-y-5">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-brand-light leading-snug break-words">
-                Celebrating Elegance &amp; Creative Fashion in Vijayawada
+                Celebrating Indian Heritage &amp; Traditional Elegance in Vijayawada
               </h3>
               <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-sans font-light">
-                Miss Satyabhama is an upcoming premium fashion showcase in Vijayawada, Andhra Pradesh.
-                The event brings together participants who are passionate about fashion, style, and
-                runway performance — offering a genuine, professionally produced stage experience
-                before a live audience.
+                Miss Satyabhama is an upcoming traditional fashion showcase in Vijayawada, Andhra Pradesh,
+                celebrating the richness of Indian ethnic fashion, cultural heritage, craftsmanship, and
+                individual expression.
               </p>
               <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-sans font-light">
-                The showcase is designed to celebrate individual expression, poise, and creative
-                talent. It provides a platform for participants to walk the runway in a grand,
-                well-organized fashion show setting — an experience that is both memorable and
-                professionally presented.
+                The event brings together participants who appreciate traditional attire, elegant sarees,
+                half-sarees, lehengas, and beautiful Indian fashion traditions. Our vision is to create a
+                premium platform where traditional Indian fashion meets modern stage presentation, celebrating
+                confidence, grace, creativity, and cultural elegance.
               </p>
             </div>
 
             {/* Divider + Purpose Statement */}
             <div className="pt-2 border-t border-brand-border/60">
               <p className="text-xs sm:text-sm text-brand-muted font-sans font-light leading-relaxed">
-                Miss Satyabhama aims to create an inclusive and premium runway experience for
-                emerging talent in Andhra Pradesh. The event is open to participants who are ready
-                to shine on stage. Full event details, registration information, and participant
-                benefits are available in the{' '}
+                From authentic Kanjeevaram weaves to vibrant South Indian half-sarees and heritage jewellery,
+                Miss Satyabhama provides a dedicated runway stage for women to showcase Indian tradition with pride.
+                Full event details, registration information, and participant benefits are available in the{' '}
                 <a
                   href="#event"
                   className="text-brand-gold hover:underline underline-offset-2 transition-colors font-medium"
