@@ -28,19 +28,19 @@ export default function About() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-center mt-10 sm:mt-12 md:mt-16">
-          {/* Editorial Visual Frame — Backstage Photograph */}
+          {/* Editorial Visual Frame — Traditional Fashion Editorial Portrait */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 order-2 lg:order-1 flex justify-center lg:justify-start w-full"
+            className="lg:col-span-5 order-2 lg:order-1 relative flex justify-center lg:justify-start w-full"
           >
             <div className="relative aspect-[4/5] w-full max-w-[340px] sm:max-w-md lg:max-w-lg xl:max-w-[460px] bg-brand-surface border border-brand-border overflow-hidden shadow-2xl group">
-              {/* Backstage Atelier Couture Photograph */}
+              {/* Traditional South Indian Handloom Saree Photograph */}
               <img
-                src="/images/satyabhama-atelier.jpg"
-                alt="Behind the scenes preparation for Miss Satyabhama fashion show"
+                src="/images/traditional-fashion-about.webp"
+                alt="South Indian model in emerald green and antique gold Kanjeevaram silk saree with temple jewellery celebrating the beauty of Indian traditional fashion"
                 className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="lazy"
               />
@@ -48,10 +48,10 @@ export default function About() {
               {/* Subtle Luxury Gradient Vignette */}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-brand-black/25 pointer-events-none" />
 
-              {/* Behind The Scenes Tag */}
+              {/* Cultural Tag */}
               <div className="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none">
                 <div className="px-2.5 py-1 bg-brand-black/80 backdrop-blur-sm border border-brand-gold/30 text-[9px] sm:text-[10px] uppercase font-sans tracking-[0.25em] text-brand-gold font-medium">
-                  Behind The Scenes
+                  Heritage Artistry
                 </div>
                 <div className="w-5 sm:w-6 h-5 sm:h-6 border-t border-r border-brand-gold/50" />
               </div>
@@ -59,7 +59,7 @@ export default function About() {
               {/* Bottom Editorial Details */}
               <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end border-t border-brand-border/40 pt-3 pointer-events-none">
                 <div className="text-[10px] sm:text-[11px] font-sans tracking-widest text-brand-light/90 uppercase drop-shadow-sm">
-                  Atelier Craftsmanship
+                  Traditional Silk Weaves
                 </div>
                 <div className="text-[9px] sm:text-[10px] uppercase font-sans tracking-widest text-brand-gold font-medium">
                   {siteConfig.eventLocation.city}
@@ -69,6 +69,13 @@ export default function About() {
               {/* Gold Corner Accents */}
               <div className="absolute top-0 right-0 w-6 sm:w-8 h-6 sm:h-8 border-t-2 border-r-2 border-brand-gold/60 pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-6 sm:w-8 h-6 sm:h-8 border-b-2 border-l-2 border-brand-gold/60 pointer-events-none" />
+            </div>
+
+            {/* Subtle Floating Label Badge */}
+            <div className="hidden sm:block absolute -bottom-3 -right-3 sm:-right-4 bg-brand-black/95 border border-brand-border/90 px-4 py-2 shadow-xl backdrop-blur-sm z-20">
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-brand-gold font-medium truncate block">
+                Handloom • Temple Gold • Grace
+              </span>
             </div>
           </motion.div>
 

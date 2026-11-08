@@ -96,11 +96,11 @@ export default function Hero() {
             className="lg:col-span-5 relative w-full flex justify-center lg:justify-end"
           >
             {/* Aspect Ratio Container for Hero Photograph */}
-            <div className="relative aspect-[2/3] w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[440px] xl:max-w-[480px] bg-brand-surface border border-brand-border overflow-hidden shadow-2xl group">
+            <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[440px] xl:max-w-[480px] bg-brand-surface border border-brand-border overflow-hidden shadow-2xl group">
               {/* Actual Model Fashion-Show Photograph */}
               <img
-                src="/images/satyabhama-hero.jpg"
-                alt="Miss Satyabhama runway model in black couture gown and crown"
+                src="/images/traditional-fashion-hero.webp"
+                alt="Miss Satyabhama South Indian model in royal maroon Kanjeevaram silk saree with temple jewellery"
                 className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="eager"
                 fetchPriority="high"
@@ -120,7 +120,7 @@ export default function Hero() {
               {/* Bottom Details Overlay */}
               <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end border-t border-brand-border/40 pt-3 pointer-events-none">
                 <div className="text-[10px] sm:text-[11px] font-sans tracking-widest text-brand-light/90 uppercase drop-shadow-sm">
-                  Runway Showcase
+                  Traditional Heritage
                 </div>
                 <div className="text-[9px] sm:text-[10px] uppercase font-sans tracking-widest text-brand-gold font-medium">
                   {siteConfig.eventLocation.city}
@@ -135,7 +135,7 @@ export default function Hero() {
             {/* Subtle Floating Label Badge */}
             <div className="hidden sm:block absolute -bottom-4 -left-4 bg-brand-black/90 border border-brand-border px-4 sm:px-5 py-2.5 sm:py-3 shadow-xl backdrop-blur-sm max-w-[90%] z-20">
               <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold font-medium truncate block">
-                Fashion • Runway • Vijayawada
+                Indian Heritage • Traditional Runway • Vijayawada
               </span>
             </div>
           </motion.div>
