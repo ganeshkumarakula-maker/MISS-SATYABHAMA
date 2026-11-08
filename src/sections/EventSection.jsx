@@ -13,9 +13,12 @@ import {
   Shirt,
   CheckCircle,
   AlertCircle,
+  Tag,
+  ArrowRight,
 } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import Card from '../components/Card'
+import Button from '../components/Button'
 import siteConfig from '../config/siteConfig'
 
 const EVENT_OVERVIEW =
@@ -133,28 +136,42 @@ export default function EventSection() {
           </p>
         </motion.div>
 
-        {/* ── Hero Banner: Registration Fee + 5 Free Audience Passes ── */}
+        {/* ── Hero Banner: Early Bird Registration Fee + 5 Free Audience Passes ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row gap-4 mb-10 sm:mb-14 max-w-2xl mx-auto"
+          className="flex flex-col sm:flex-row gap-4 mb-6 sm:mb-8 max-w-2xl mx-auto"
         >
           {/* Registration Fee */}
-          <div className="flex-1 p-6 sm:p-8 bg-brand-gold/10 border-2 border-brand-gold/50 backdrop-blur-md flex flex-col items-center text-center space-y-1 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-brand-gold/40" />
-            <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-brand-gold/40" />
-            <div className="flex items-center gap-1.5 mb-0.5">
-              <IndianRupee className="w-4 h-4 text-brand-gold" />
-              <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-gold font-medium">
-                Registration Fee
+          <div className="flex-1 p-6 sm:p-8 bg-gradient-to-b from-brand-gold/15 via-brand-surface/90 to-brand-surface border-2 border-brand-gold backdrop-blur-md flex flex-col items-center text-center space-y-1 relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-brand-gold" />
+            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-brand-gold" />
+            
+            <div className="flex items-center gap-1.5 mb-1">
+              <Tag className="w-3.5 h-3.5 text-brand-gold" />
+              <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-gold font-bold">
+                Early Bird Offer
+              </span>
+              <span className="px-1.5 py-0.2 bg-brand-gold text-brand-black text-[9px] font-bold tracking-wider uppercase">
+                Save ₹3,000
               </span>
             </div>
-            <span className="font-serif text-4xl sm:text-5xl text-brand-gold font-semibold leading-none py-1">
-              ₹9,999
+
+            <div className="flex items-baseline gap-2.5 my-1">
+              <span className="font-serif text-4xl sm:text-5xl text-brand-gold font-bold leading-none">
+                ₹6,999
+              </span>
+              <span className="font-serif text-lg sm:text-xl text-brand-muted line-through">
+                ₹9,999
+              </span>
+            </div>
+
+            <span className="text-xs text-brand-light font-sans font-medium pt-0.5">
+              Valid till 25 November 2026
             </span>
-            <span className="text-[11px] text-brand-muted font-sans font-light">
+            <span className="text-[10px] text-brand-muted font-sans font-light">
               Full participant package included
             </span>
           </div>
@@ -179,6 +196,28 @@ export default function EventSection() {
               Invite 5 family members or friends to watch the live fashion show
             </span>
           </div>
+        </motion.div>
+
+        {/* Claim Early Bird CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-md mx-auto mb-10 sm:mb-14"
+        >
+          <Button
+            variant="primary"
+            size="lg"
+            href="#register"
+            className="w-full shadow-2xl font-bold tracking-wider py-4 min-h-[48px]"
+          >
+            <span>CLAIM EARLY BIRD PRICE</span>
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+          <p className="text-[11px] text-brand-muted mt-2 font-sans font-light">
+            Original price ₹9,999 applies after 25 November 2026.
+          </p>
         </motion.div>
 
         {/* ── Outfit Requirement Notice ── */}
@@ -263,7 +302,7 @@ export default function EventSection() {
           <div className="flex items-center gap-3">
             <CheckCircle className="w-5 h-5 text-brand-gold shrink-0" />
             <h3 className="font-serif text-lg sm:text-xl text-brand-light">
-              What Is Included in ₹9,999
+              What Is Included in Early Bird ₹6,999 (Regular ₹9,999)
             </h3>
           </div>
           <p className="text-xs sm:text-sm text-brand-muted font-sans font-light leading-relaxed">
@@ -306,6 +345,39 @@ export default function EventSection() {
               </p>
             </div>
           </div>
+        </motion.div>
+
+        {/* ── Bottom Early Bird Conversion Banner ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto my-10 p-6 sm:p-8 bg-gradient-to-r from-brand-gold/15 via-brand-surface/90 to-brand-surface border border-brand-gold/50 backdrop-blur-md text-center shadow-2xl relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-brand-gold pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-brand-gold pointer-events-none" />
+          
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-gold/20 border border-brand-gold/40 text-brand-gold text-[10px] uppercase font-bold tracking-widest mb-3">
+            <Tag className="w-3 h-3" />
+            <span>Limited Period Offer</span>
+          </div>
+
+          <h3 className="font-serif text-2xl sm:text-3xl text-brand-light font-medium mb-2">
+            Claim Your Early Bird Spot Today
+          </h3>
+          <p className="text-xs sm:text-sm text-brand-muted font-sans font-light max-w-lg mx-auto mb-6">
+            Register for <span className="text-brand-gold font-semibold">₹6,999</span> instead of <span className="line-through text-brand-muted">₹9,999</span> (Save ₹3,000 till 25 November 2026). Compete for the ₹1,50,000 prize pool and walk the prestigious traditional runway in Vijayawada.
+          </p>
+          <Button
+            variant="primary"
+            size="lg"
+            href="#register"
+            className="w-full sm:w-auto shadow-2xl font-bold tracking-wider"
+          >
+            <span>CLAIM EARLY BIRD PRICE</span>
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
         </motion.div>
 
         {/* Footer Note */}

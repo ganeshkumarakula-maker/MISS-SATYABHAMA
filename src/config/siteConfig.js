@@ -39,6 +39,59 @@ const siteConfig = {
   registrationUrl:
     import.meta.env.VITE_REGISTRATION_URL ||
     'https://docs.google.com/forms/d/e/1FAIpQLSfULiFVehJRGyT9G9KQKjpnSyL9KCYtSlt3JJ5k9SlZ22GwzQ/viewform?usp=dialog',
+
+  // Campaign & Promotional Pricing Configuration (Source of Truth)
+  campaign: {
+    originalPrice: 9999,
+    originalPriceFormatted: '₹9,999',
+    earlyBirdPrice: 6999,
+    earlyBirdPriceFormatted: '₹6,999',
+    discountAmount: 3000,
+    discountFormatted: '₹3,000',
+    deadline: '25 November 2026',
+    deadlineDate: '2026-11-25',
+    headline: 'Your Opportunity Starts Here!',
+    subheadline:
+      'Register now and secure your place with our exclusive Early Bird Offer.',
+    prizes: {
+      total: 150000,
+      totalFormatted: '₹1,50,000',
+      heading: 'BIG OPPORTUNITIES. BIGGER REWARDS.',
+      subheading: 'Compete for a Total Prize Pool of ₹1,50,000',
+      list: [
+        {
+          id: 'first',
+          rank: '1st',
+          title: 'First Prize',
+          subtitle: 'Showcase Winner & Title',
+          amount: 75000,
+          amountFormatted: '₹75,000',
+          highlight: true,
+          badge: 'CHAMPION',
+        },
+        {
+          id: 'second',
+          rank: '2nd',
+          title: 'Second Prize',
+          subtitle: 'First Runner-Up',
+          amount: 50000,
+          amountFormatted: '₹50,000',
+          highlight: false,
+          badge: '1ST RUNNER-UP',
+        },
+        {
+          id: 'third',
+          rank: '3rd',
+          title: 'Third Prize',
+          subtitle: 'Second Runner-Up',
+          amount: 25000,
+          amountFormatted: '₹25,000',
+          highlight: false,
+          badge: '2ND RUNNER-UP',
+        },
+      ],
+    },
+  },
 }
 
 export default siteConfig

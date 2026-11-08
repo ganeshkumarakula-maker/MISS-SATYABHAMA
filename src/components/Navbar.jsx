@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import siteConfig from '../config/siteConfig'
 import Button from './Button'
+import AnnouncementBar from './AnnouncementBar'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
+  { label: 'Prizes', href: '#prizes' },
+  { label: 'Register', href: '#register' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'About', href: '#about' },
   { label: 'The Event', href: '#event' },
@@ -14,6 +17,7 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { campaign } = siteConfig
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,11 +55,14 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled || mobileMenuOpen
-          ? 'bg-brand-black/95 backdrop-blur-md border-b border-brand-border py-3 sm:py-4 shadow-lg'
-          : 'bg-gradient-to-b from-brand-black/90 via-brand-black/40 to-transparent py-4 sm:py-6'
+          ? 'bg-brand-black/95 backdrop-blur-md border-b border-brand-border shadow-lg'
+          : 'bg-gradient-to-b from-brand-black/95 via-brand-black/85 to-transparent'
       }`}
     >
-      <div className="container-editorial flex items-center justify-between">
+      {/* Top Promotional Announcement Bar */}
+      <AnnouncementBar />
+
+      <div className="container-editorial flex items-center justify-between py-3 sm:py-4">
         {/* Brand Logo / Monogram */}
         <a
           href="#home"
@@ -87,16 +94,14 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTA Action */}
-        <div className="hidden lg:flex items-center">
+        <div className="hidden lg:flex items-center gap-3">
           <Button
             variant="primary"
             size="sm"
-            href={siteConfig.registrationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="tracking-widest"
+            href="#register"
+            className="tracking-wider font-semibold"
           >
-            Register
+            Register ({campaign.earlyBirdPriceFormatted})
           </Button>
         </div>
 
@@ -139,16 +144,14 @@ export default function Navbar() {
             <Button
               variant="primary"
               size="md"
-              href={siteConfig.registrationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#register"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center min-h-[44px]"
+              className="w-full text-center min-h-[44px] font-bold"
             >
-              Register Now
+              Register Now ({campaign.earlyBirdPriceFormatted})
             </Button>
             <p className="text-center text-xs text-brand-muted tracking-widest uppercase">
-              {siteConfig.eventLocation.city}, {siteConfig.eventLocation.state}
+              Early Bird Offer Till {campaign.deadline}
             </p>
           </div>
         </div>
