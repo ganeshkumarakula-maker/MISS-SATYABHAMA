@@ -41,6 +41,20 @@ const siteConfig = {
     import.meta.env.VITE_REGISTRATION_URL ||
     'https://docs.google.com/forms/d/e/1FAIpQLSfULiFVehJRGyT9G9KQKjpnSyL9KCYtSlt3JJ5k9SlZ22GwzQ/viewform?usp=dialog',
 
+  // Official Prize Pool Configuration (Source of Truth)
+  prizePool: {
+    heading: 'BIG OPPORTUNITIES. BIGGER REWARDS.',
+    subheading: 'Compete for a Total Prize Pool of ₹1,50,000',
+    total: 150000,
+    totalFormatted: '₹1,50,000',
+    firstPrize: 75000,
+    firstPrizeFormatted: '₹75,000',
+    secondPrize: 50000,
+    secondPrizeFormatted: '₹50,000',
+    thirdPrize: 25000,
+    thirdPrizeFormatted: '₹25,000',
+  },
+
   // Registration Pricing Configuration (Source of Truth)
   pricing: {
     regularPrice: 9999,
@@ -72,5 +86,6 @@ const siteConfig = {
 
 // Ensure siteConfig.campaign aliases siteConfig.pricing for full backward compatibility
 siteConfig.campaign = siteConfig.pricing
+siteConfig.prizes = siteConfig.prizePool
 
 export default siteConfig

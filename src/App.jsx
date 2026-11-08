@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MobileStickyCTA from './components/MobileStickyCTA'
 import Hero from './sections/Hero'
+import PrizePoolSection from './sections/PrizePoolSection'
 import GallerySection from './sections/GallerySection'
 import About from './sections/About'
 import EventSection from './sections/EventSection'
@@ -16,6 +17,7 @@ function App() {
       {/* Main Content Sections — order: Home, Gallery, About, The Event, Contact */}
       <main className="flex-1">
         <Hero />
+        <PrizePoolSection />
         <GallerySection />
         <About />
         <EventSection />

@@ -6,6 +6,8 @@ import {
   Scissors,
   UtensilsCrossed,
   Award,
+  Trophy,
+  Medal,
   Camera,
   Gift,
   Ticket,
@@ -300,6 +302,101 @@ export default function EventSection() {
                 or traditional ethnic lehengas. The organization will <span className="text-brand-light font-medium">not</span> provide
                 or supply clothing.
               </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ── Compact Official Prize Pool Summary (Near Participant Benefits) ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl mx-auto mb-10 sm:mb-14 p-5 sm:p-7 bg-brand-surface/85 border border-brand-gold/50 backdrop-blur-md relative overflow-hidden shadow-2xl"
+        >
+          {/* Subtle gold corner accents */}
+          <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-brand-gold pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-brand-gold pointer-events-none" />
+
+          {/* Header row: Title + Total Prize Pool */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 mb-5 border-b border-brand-border/70">
+            <div className="flex items-center gap-2.5">
+              <div className="w-10 h-10 rounded border border-brand-gold/40 flex items-center justify-center bg-brand-gold/10 shrink-0">
+                <Trophy className="w-5 h-5 text-brand-gold" />
+              </div>
+              <div>
+                <span className="text-[10px] uppercase font-sans tracking-[0.2em] text-brand-gold font-bold block">
+                  Official Rewards
+                </span>
+                <h3 className="font-serif text-lg sm:text-xl text-brand-light font-medium">
+                  Prize Pool &amp; Cash Awards
+                </h3>
+              </div>
+            </div>
+            <div className="sm:text-right">
+              <span className="text-[10px] uppercase font-sans tracking-widest text-brand-muted block">
+                Total Prize Pool
+              </span>
+              <span className="font-serif text-2xl sm:text-3xl text-brand-gold font-bold">
+                {siteConfig.prizePool.totalFormatted}
+              </span>
+            </div>
+          </div>
+
+          {/* 3 Compact Prize Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+            {/* First Prize */}
+            <div className="p-4 bg-gradient-to-b from-brand-gold/20 via-brand-surface to-brand-surface border border-brand-gold/70 relative">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] uppercase font-sans tracking-wider text-brand-gold font-bold">
+                  🥇 First Prize
+                </span>
+                <span className="text-[9px] uppercase font-sans tracking-widest px-1.5 py-0.5 bg-brand-gold/20 text-brand-gold font-medium">
+                  Winner
+                </span>
+              </div>
+              <span className="font-serif text-2xl sm:text-3xl text-brand-gold font-bold block">
+                {siteConfig.prizePool.firstPrizeFormatted}
+              </span>
+              <span className="text-[11px] text-brand-muted font-sans font-light mt-1 block">
+                Championship Title &amp; Cash Prize
+              </span>
+            </div>
+
+            {/* Second Prize */}
+            <div className="p-4 bg-brand-surface/60 border border-brand-border/80">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] uppercase font-sans tracking-wider text-brand-muted font-semibold">
+                  🥈 Second Prize
+                </span>
+                <span className="text-[9px] uppercase font-sans tracking-widest px-1.5 py-0.5 bg-brand-black/60 text-brand-muted font-medium">
+                  1st Runner-Up
+                </span>
+              </div>
+              <span className="font-serif text-2xl sm:text-3xl text-brand-light font-semibold block">
+                {siteConfig.prizePool.secondPrizeFormatted}
+              </span>
+              <span className="text-[11px] text-brand-muted font-sans font-light mt-1 block">
+                Runner-Up Cash Reward
+              </span>
+            </div>
+
+            {/* Third Prize */}
+            <div className="p-4 bg-brand-surface/60 border border-brand-border/80">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] uppercase font-sans tracking-wider text-brand-muted font-semibold">
+                  🥉 Third Prize
+                </span>
+                <span className="text-[9px] uppercase font-sans tracking-widest px-1.5 py-0.5 bg-brand-black/60 text-brand-muted font-medium">
+                  2nd Runner-Up
+                </span>
+              </div>
+              <span className="font-serif text-2xl sm:text-3xl text-brand-light font-semibold block">
+                {siteConfig.prizePool.thirdPrizeFormatted}
+              </span>
+              <span className="text-[11px] text-brand-muted font-sans font-light mt-1 block">
+                Runner-Up Cash Reward
+              </span>
             </div>
           </div>
         </motion.div>
