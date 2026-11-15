@@ -118,14 +118,21 @@ export default function About() {
               <p className="text-xs sm:text-sm text-brand-muted font-sans font-light leading-relaxed">
                 From authentic Kanjeevaram weaves to vibrant South Indian half-sarees and heritage jewellery,
                 Miss Satyabhama provides a dedicated runway stage for women to showcase Indian tradition with pride.
-                Full event details, registration information, and participant benefits are available in the{' '}
+                Full category details, audition process, and event information are available in the{' '}
                 <a
-                  href="#event"
+                  href="#categories"
                   className="text-brand-gold hover:underline underline-offset-2 transition-colors font-medium"
                 >
-                  The Event
+                  Categories
                 </a>{' '}
-                section below.
+                and{' '}
+                <a
+                  href="#audition"
+                  className="text-brand-gold hover:underline underline-offset-2 transition-colors font-medium"
+                >
+                  Audition
+                </a>{' '}
+                sections below.
               </p>
             </div>
 

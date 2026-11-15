@@ -227,10 +227,10 @@ export default function PrizePoolSection() {
             <Button
               variant="secondary"
               size="lg"
-              href="#event"
+              href="#audition"
               className="w-full sm:w-auto"
             >
-              <span>VIEW EVENT &amp; INCLUSIONS</span>
+              <span>VIEW AUDITION PROCESS</span>
             </Button>
           </div>
         </motion.div>

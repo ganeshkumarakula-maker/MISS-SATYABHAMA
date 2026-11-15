@@ -6,13 +6,16 @@ const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'About', href: '#about' },
+  { label: 'Categories', href: '#categories' },
+  { label: 'Audition', href: '#audition' },
   { label: 'The Event', href: '#event' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-  const { eventLocation, contact } = siteConfig
+  const { eventLocation, contact, pricing } = siteConfig
+  const isEarlyBird = pricing.isEarlyBirdActive()
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -93,29 +96,21 @@ export default function Footer() {
               <h4 className="text-xs uppercase font-sans tracking-[0.25em] text-brand-gold font-medium mb-2.5 sm:mb-3">
                 Participant Auditions
               </h4>
-              <p className="text-xs text-brand-muted font-sans font-light leading-relaxed mb-4">
-                {siteConfig.pricing.isEarlyBirdActive() ? (
-                  <>
-                    Early Bird offer: Register for{' '}
-                    <span className="text-brand-gold font-semibold">
-                      {siteConfig.pricing.earlyBirdPriceFormatted}
-                    </span>{' '}
-                    instead of{' '}
-                    <span className="line-through">
-                      {siteConfig.pricing.regularPriceFormatted}
-                    </span>{' '}
-                    (Valid till {siteConfig.pricing.earlyBirdDeadline}).
-                  </>
-                ) : (
-                  <>
-                    Auditions registration fee:{' '}
-                    <span className="text-brand-gold font-semibold">
-                      {siteConfig.pricing.regularPriceFormatted}
-                    </span>
-                    . Full participant package included.
-                  </>
-                )}
-              </p>
+              {isEarlyBird ? (
+                <p className="text-xs text-brand-muted font-sans font-light leading-relaxed mb-4">
+                  Register for Miss Satyabhama auditions at the Early Bird fee of{' '}
+                  <span className="text-brand-gold font-semibold">{pricing.earlyBirdPriceFormatted}</span>{' '}
+                  <span className="line-through text-brand-muted/60">{pricing.regularPriceFormatted}</span>.
+                  {' '}Save {pricing.savingsFormatted} — valid till {pricing.earlyBirdDeadlineShort}.
+                  After the deadline, the regular fee of {pricing.regularPriceFormatted} applies.
+                </p>
+              ) : (
+                <p className="text-xs text-brand-muted font-sans font-light leading-relaxed mb-4">
+                  Register for Miss Satyabhama auditions at{' '}
+                  <span className="text-brand-gold font-semibold">{pricing.regularPriceFormatted}</span>.{' '}
+                  Fee is for audition registration only. All registered participants get the opportunity to attend auditions. Selection follows the audition evaluation.
+                </p>
+              )}
               <Button
                 variant="primary"
                 size="sm"
@@ -124,8 +119,8 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto min-h-[44px] font-semibold"
               >
-                {siteConfig.pricing.isEarlyBirdActive()
-                  ? `Register (${siteConfig.pricing.earlyBirdPriceFormatted})`
+                {isEarlyBird
+                  ? `Register (${pricing.earlyBirdPriceFormatted})`
                   : 'Register For Auditions'}
               </Button>
             </div>

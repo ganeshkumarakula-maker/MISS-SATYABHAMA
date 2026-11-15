@@ -8,6 +8,8 @@ const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'About', href: '#about' },
+  { label: 'Categories', href: '#categories' },
+  { label: 'Audition', href: '#audition' },
   { label: 'The Event', href: '#event' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -15,8 +17,6 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { pricing } = siteConfig
-  const isEarlyBird = pricing.isEarlyBirdActive()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +50,9 @@ export default function Navbar() {
     }
   }, [mobileMenuOpen])
 
+  const isEarlyBird = siteConfig.pricing.isEarlyBirdActive()
+  const { pricing } = siteConfig
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -78,7 +81,7 @@ export default function Navbar() {
 
         {/* Desktop Navigation Links (visible at lg >= 1024px to prevent tablet crowding) */}
         <nav
-          className="hidden lg:flex items-center space-x-6 xl:space-x-8"
+          className="hidden lg:flex items-center space-x-4 xl:space-x-7"
           aria-label="Main Navigation"
         >
           {navLinks.map((link) => (
@@ -159,7 +162,7 @@ export default function Navbar() {
             </Button>
             <p className="text-center text-xs text-brand-muted tracking-widest uppercase">
               {isEarlyBird
-                ? `Early Bird Offer Till ${pricing.earlyBirdDeadlineShort}`
+                ? `Early Bird Until ${pricing.earlyBirdDeadlineShort}`
                 : `${siteConfig.eventLocation.city}, ${siteConfig.eventLocation.state}`}
             </p>
           </div>
